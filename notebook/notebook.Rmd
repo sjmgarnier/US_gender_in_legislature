@@ -37,13 +37,47 @@ source("notebook_chunks/3_fig_all_byState_byYear.R")
 ---
 
 # Percentage of women in state legislature - distribution by year
-```{r, 'all.distribution.byYear', cache=FALSE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', fig.width=7, fig.height=7, out.width=500, out.height=500}
+```{r, 'all.distribution.byYear', cache=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', fig.width=7, fig.height=7, out.width=500, out.height=500}
 source("notebook_chunks/4_fig_all_distribution_byYear.R")
 ```
 
 [Back to top]("#")
 
 ---
+
+# State ranking (2014)
+```{r, 'state.ranking.2014', cache=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', fig.width=7, fig.height=10, out.width=500, out.height=500*10/7}
+source("notebook_chunks/5_fig_state_ranking_2014.R")
+```
+
+[Back to top]("#")
+
+---
+
+# State map (2014)
+```{r, 'state.map.2014', cache=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', fig.width=10, fig.height=10, out.width=500, out.height=500, dev.args=list(bg = "#F0F0F0")}
+source("notebook_chunks/6_fig_state_map_2014.R")
+```
+
+[Back to top]("#")
+
+---
+
+# Party comparison by year
+```{r, 'party.by.year', cache=FALSE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', fig.width=7, fig.height=7, out.width=500, out.height=500}
+source("notebook_chunks/7_fig_party_by_year.R")
+```
+
+[Back to top]("#")
+
+---
+
+
+
+
+
+
+
 
 
 

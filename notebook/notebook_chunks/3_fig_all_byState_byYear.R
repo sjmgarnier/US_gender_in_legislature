@@ -32,7 +32,7 @@ g2 <- ggplot(data = my.tab,
   ylab("Percent women") + xlab("Year") + 
   annotate("text", x = min(my.tab$YEAR) + .25, y = 52, label = "Parity", 
            family = "Droid Sans Mono", hjust = 0, size = 4) +
-  ggtitle(bquote(atop("Evolution of gender ratio in state senate", 
+  ggtitle(bquote(atop("Evolution of gender ratio in state senates", 
                       atop()))) +
   theme_graphzoo(base_size = 13, family = "Droid Sans Mono") +
   guides(color = guide_legend(title = "State", ncol = 3))
@@ -55,7 +55,7 @@ g3 <- ggplot(data = my.tab,
   ylab("Percent women") + xlab("Year") + 
   annotate("text", x = min(my.tab$YEAR) + .25, y = 52, label = "Parity", 
            family = "Droid Sans Mono", hjust = 0, size = 4) +
-  ggtitle(bquote(atop("Evolution of gender ratio in state house", 
+  ggtitle(bquote(atop("Evolution of gender ratio in state houses", 
                       atop()))) +
   theme_graphzoo(base_size = 13, family = "Droid Sans Mono") +
   guides(color = guide_legend(title = "State", ncol = 3))

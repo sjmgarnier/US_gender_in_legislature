@@ -19,9 +19,10 @@ if(file.exists("../data.csv")) {
   my.tab <- fread("../data.csv")
 } else {
   # ...scrape and clean up data tables from the website of the Center for 
-  # American Women and Politics. Note that we need to process Nebraska 
-  # separately since it has a unicameral legislatire and it disrupts the 
-  # scraping process (damn you Nebraska!).
+  # American Women and Politics. Note that we need to process Nebraska and 
+  # Vermont separately. Nebraska has a unicameral legislature and Vermont a 3rd
+  # party (the Progressive Party), and both disrupts the scraping process (damn 
+  #you Nebraska and Vermont!!!).
   
   
   # Locate webpages containing data for each state on the website of the Center 
@@ -43,7 +44,7 @@ if(file.exists("../data.csv")) {
   
   
   # Scrape data
-  for (i in c(1:2, 4:nrow(data.loc))) {
+  for (i in which(data.loc$STATE != "Vermont" & data.loc$STATE != "Nebraska")) {
     html <- htmlParse(data.loc$URL[i])
     html <- xpathSApply(html, "//div[@id='StateFactsTable']")[[1]]
     state.tab <- readHTMLTable(html, skip.rows = 1)
@@ -87,7 +88,7 @@ if(file.exists("../data.csv")) {
   
   
   # Scrape data for Nebraska
-  html <- htmlParse(data.loc$URL[3])
+  html <- htmlParse(data.loc$URL[data.loc$STATE == "Nebraska"])
   html <- xpathSApply(html, "//div[@id='StateFactsTable']")[[1]]
   state.tab <- readHTMLTable(html, skip.rows = 1)
   party.col <- state.tab[1, ]
@@ -100,8 +101,8 @@ if(file.exists("../data.csv")) {
   setnames(state.tab, names(state.tab), tab.names)
   
   state.tab <- state.tab %>%
-    mutate(STATE.NAME = data.loc$STATE[3],
-           STATE.ABB = data.loc$STATE.ABB[3],
+    mutate(STATE.NAME = data.loc$STATE[data.loc$STATE == "Nebraska"],
+           STATE.ABB = data.loc$STATE.ABB[data.loc$STATE == "Nebraska"],
            STATE.RANK = as.numeric(as.character(STATE.RANK)),
            SENATE.D = as.numeric(as.character(SENATE.D)),
            SENATE.R = as.numeric(as.character(SENATE.R)),
@@ -119,6 +120,41 @@ if(file.exists("../data.csv")) {
   
   my.tab <- rbind(my.tab, state.tab[,c(1, 16, 17, 2:15)])
   
+  
+  # Scrape data for Vermont
+  html <- htmlParse(data.loc$URL[data.loc$STATE == "Vermont"])
+  html <- xpathSApply(html, "//div[@id='StateFactsTable']")[[1]]
+  state.tab <- readHTMLTable(html, skip.rows = 1)
+  party.col <- state.tab[1, ]
+  party.col <- party.col[!is.na(party.col)]
+  state.tab <- state.tab[-1, ]
+  
+  state.tab <- cbind(state.tab[, 1:4], SENATE.I = NA, state.tab[,5:15])
+  
+  setnames(state.tab, names(state.tab), c(tab.names[1:10], "HOUSE.PRG", tab.names[11:15]))
+  
+  state.tab <- state.tab %>%
+    mutate(STATE.NAME = data.loc$STATE[data.loc$STATE == "Vermont"],
+           STATE.ABB = data.loc$STATE.ABB[data.loc$STATE == "Vermont"],
+           STATE.RANK = as.numeric(as.character(STATE.RANK)),
+           SENATE.D = as.numeric(as.character(SENATE.D)),
+           SENATE.R = as.numeric(as.character(SENATE.R)),
+           SENATE.I = as.numeric(as.character(SENATE.I)),
+           SENATE.WOMEN = as.numeric(as.character(gsub("\\/", "", SENATE.WOMEN))),
+           SENATE.TOTAL = as.numeric(as.character(SENATE.TOTAL)),
+           HOUSE.D = as.numeric(as.character(HOUSE.D)),
+           HOUSE.R = as.numeric(as.character(HOUSE.R)),
+           HOUSE.I = as.numeric(as.character(HOUSE.I)),
+           HOUSE.PRG = as.numeric(as.character(HOUSE.PRG)),
+           HOUSE.WOMEN = as.numeric(as.character(gsub("\\/", "", HOUSE.WOMEN))),
+           HOUSE.TOTAL = as.numeric(as.character(HOUSE.TOTAL)),
+           TOTAL.WOMEN = as.numeric(as.character(gsub("\\/", "", TOTAL.WOMEN))),
+           TOTAL.LEGISLATURE = as.numeric(as.character(TOTAL.LEGISLATURE)),
+           PERCENT.WOMEN = as.numeric(as.character(PERCENT.WOMEN)))
+  
+  my.tab <- mutate(my.tab, HOUSE.PRG = NA) %>%
+    rbind(state.tab[, c(1, 17, 18, 2:10, 12:16, 11)])
+  setcolorder(my.tab, c(1:12, 18, 13:17))
   
   # Do a last clean up because some of the HTML tables had a footer with 
   # asterisks (consistency please!!!)
