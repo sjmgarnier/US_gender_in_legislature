@@ -1,0 +1,19 @@
+h1 {
+  font-size: 24px;
+}
+
+p {
+  text-align: justify;
+}
+
+span.header-section-number::after, 
+span.toc-section-number::after {
+  content: " - ";
+}
+
+hr {
+  border: none;
+  height: 3px;
+  color: #EEEEEE; 
+  background-color: #EEEEEE; 
+}

@@ -1,0 +1,17 @@
+base
+data.table
+datasets
+dplyr
+extrafont
+ggplot2
+graphics
+graphZoo
+grDevices
+grid
+gridExtra
+mapdata
+maps
+methods
+stats
+utils
+XML

@@ -1,0 +1,51 @@
+---
+title: "Notebook"
+author: "Simon Garnier"
+date: "June 29, 2014"
+output:
+  html_document:
+    css: custom.css
+    fig_caption: yes
+    fig_width: 5
+    number_sections: yes
+    theme: cosmo
+    toc: yes
+---
+
+---
+
+**Project name:** Gender balance in state legislatures in the USA
+
+**Participants:** Simon Garnier (<garnier@njit.edu>)
+
+**Brief description**: TODO
+
+---
+
+```{r, 'data', include=FALSE}
+source("notebook_chunks/1_libraries.R")
+source("notebook_chunks/2_load_data.R")
+```
+
+# Percentage of women in state legislature by state and by year
+```{r, 'all.byState.byYear', cache=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', fig.width=8, fig.height=7, out.width=500*8/7, out.height=500}
+source("notebook_chunks/3_fig_all_byState_byYear.R")
+```
+
+[Back to top]("#")
+
+---
+
+# Percentage of women in state legislature - distribution by year
+```{r, 'all.distribution.byYear', cache=FALSE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', fig.width=7, fig.height=7, out.width=500, out.height=500}
+source("notebook_chunks/4_fig_all_distribution_byYear.R")
+```
+
+[Back to top]("#")
+
+---
+
+
+
+
+
