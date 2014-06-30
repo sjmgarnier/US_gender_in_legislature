@@ -10,8 +10,8 @@ g1 <- ggplot(data = my.tab,
   ylab("Percent women") + xlab("Year") + 
   annotate("text", x = min(my.tab$YEAR) + .25, y = 52, label = "Parity", 
            family = "Droid Sans Mono", hjust = 0, size = 4) +
-  ggtitle(bquote(atop("Evolution of gender ratio in state legislature", 
-                      atop("Senate + House (each dot represents a state)")))) +
+  ggtitle(bquote(atop("Gender ratio in US state legislature", 
+                      atop("Senates + Houses (each dot represents a state)")))) +
   theme_graphzoo(base_size = 13, family = "Droid Sans Mono") + 
   guides(color = FALSE)
 
