@@ -63,19 +63,6 @@ source("notebook_chunks/6_fig_state_map_2014.R")
 
 ---
 
-# Party comparison by year
-```{r, 'party.by.year', cache=FALSE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', fig.width=7, fig.height=7, out.width=500, out.height=500}
-source("notebook_chunks/7_fig_party_by_year.R")
-```
-
-[Back to top]("#")
-
----
-
-
-
-
-
 
 
 

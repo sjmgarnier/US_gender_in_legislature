@@ -49,7 +49,7 @@ g1 <- ggplot() +
                color = "white") +
   coord_fixed() + 
   ggtitle(bquote(atop("Gender ratio in state legislature", 
-                      atop("By US state (2014)")))) +
+                      atop("Senate + House, by US state - 2014")))) +
   theme_graphzoo(base_size = 13 * 10 / 7, family = "Droid Sans Mono") + 
   theme(axis.line = element_blank(), 
         axis.text.x = element_blank(), 
@@ -87,7 +87,7 @@ g2 <- ggplot() +
                color = "white") +
   coord_fixed() + 
   ggtitle(bquote(atop("Gender ratio in state senates", 
-                      atop("By US state (2014)")))) +
+                      atop("By US state - 2014")))) +
   theme_graphzoo(base_size = 13 * 10 / 7, family = "Droid Sans Mono") + 
   theme(axis.line = element_blank(), 
         axis.text.x = element_blank(), 
@@ -125,7 +125,7 @@ g3 <- ggplot() +
                color = "white") +
   coord_fixed() + 
   ggtitle(bquote(atop("Gender ratio in state houses", 
-                      atop("By US state (2014)")))) +
+                      atop("By US state - 2014")))) +
   theme_graphzoo(base_size = 13 * 10 / 7, family = "Droid Sans Mono") + 
   theme(axis.line = element_blank(), 
         axis.text.x = element_blank(), 

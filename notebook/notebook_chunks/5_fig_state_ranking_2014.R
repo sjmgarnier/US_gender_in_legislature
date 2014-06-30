@@ -16,11 +16,11 @@ g1 <- ggplot(data = tmp,
            family = "Droid Sans Mono", hjust = 1, size = 5) +
   annotate("text", x = 1.25, y = 52, label = "Parity", angle = -90, 
            family = "Droid Sans Mono", hjust = 1, size = 5) +
-  coord_flip() + ylim(0, 65) +
+  coord_flip() + ylim(0, 55) +
   guides(fill = FALSE) +
   ylab("Percent women") + 
   ggtitle(bquote(atop("Gender ratio in state legislature", 
-                      atop("By US state (2014)")))) +
+                      atop("Senate + House, by US state - 2014")))) +
   theme_graphzoo(base_size = 13, family = "Droid Sans Mono") + 
   theme(axis.title.y = element_blank()) + 
   scale_fill_continuous(low = "red4", high = "dodgerblue3", trans="log10")
@@ -43,11 +43,11 @@ g2 <- ggplot(data = tmp,
            family = "Droid Sans Mono", hjust = 1, size = 5) +
   annotate("text", x = 1.25, y = 52, label = "Parity", angle = -90, 
            family = "Droid Sans Mono", hjust = 1, size = 5) +
-  coord_flip() + ylim(0, 65) +
+  coord_flip() + ylim(0, 55) +
   guides(fill = FALSE) +
   ylab("Percent women") + 
   ggtitle(bquote(atop("Gender ratio in state senates", 
-                      atop("By US state (2014)")))) +
+                      atop("By US state - 2014")))) +
   theme_graphzoo(base_size = 13, family = "Droid Sans Mono") + 
   theme(axis.title.y = element_blank()) + 
   scale_fill_continuous(low = "red4", high = "dodgerblue3", trans="log10")
@@ -71,11 +71,11 @@ g3 <- ggplot(data = filter(tmp, STATE.NAME != "Nebraska"),
            family = "Droid Sans Mono", hjust = 1, size = 5) +
   annotate("text", x = 1.25, y = 52, label = "Parity", angle = -90, 
            family = "Droid Sans Mono", hjust = 1, size = 5) +
-  coord_flip() + ylim(0, 65) +
+  coord_flip() + ylim(0, 55) +
   guides(fill = FALSE) +
   ylab("Percent women") + 
   ggtitle(bquote(atop("Gender ratio in state houses", 
-                      atop("By US state (2014)")))) +
+                      atop("By US state - 2014")))) +
   theme_graphzoo(base_size = 13, family = "Droid Sans Mono") + 
   theme(axis.title.y = element_blank()) + 
   scale_fill_continuous(low = "red4", high = "dodgerblue3", trans="log10")

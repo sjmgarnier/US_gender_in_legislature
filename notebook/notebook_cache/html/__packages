@@ -6,6 +6,7 @@ ggplot2
 graphZoo
 gridExtra
 mapdata
+mapproj
 maps
 mgcv
 nlme
